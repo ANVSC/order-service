@@ -1,2 +1,10 @@
-package com.sumendra.orderservice.repository;public interface OrderRepository {
+package com.sumendra.orderservice.repository;
+
+import com.sumendra.orderservice.entity.Order;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface OrderRepository extends JpaRepository<Order,Long> {
+
 }
