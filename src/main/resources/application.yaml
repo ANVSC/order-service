@@ -17,12 +17,15 @@ spring:
       ddl-auto: update
   application:
     name: ORDER-SERVICE
+  config:
+    import: configserver:http://localhost:9296 #this config : import will tell order-service to go this server to fetch the configurations
 
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: ${EUREKA_SERVER_ADRESS:http://localhost:8761/eureka}
+#Commenting out eureka server details as we are going to get config details from config server
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    fetch-registry: true
+#    register-with-eureka: true
+#    service-url:
+#      defaultZone: ${EUREKA_SERVER_ADRESS:http://localhost:8761/eureka}

@@ -50,6 +50,18 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- Dependency for using ConfigServer to get the configuration Start-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<!-- Dependency for using ConfigServer to get the configuration End-->
+		<!-- Dependency for FeignClient Start-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+		<!-- Dependency for FeignClient End-->
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>

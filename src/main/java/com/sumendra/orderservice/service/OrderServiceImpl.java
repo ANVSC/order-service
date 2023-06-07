@@ -1,6 +1,7 @@
 package com.sumendra.orderservice.service;
 
 import com.sumendra.orderservice.entity.Order;
+import com.sumendra.orderservice.external.client.ProductService;
 import com.sumendra.orderservice.model.OrderRequest;
 import com.sumendra.orderservice.repository.OrderRepository;
 import lombok.extern.log4j.Log4j2;
@@ -15,16 +16,25 @@ public class OrderServiceImpl implements OrderService{
 
     @Autowired
     private OrderRepository orderRepository;
+
+    @Autowired
+    private ProductService  productService;
+
     @Override
     public long placeOrder(OrderRequest orderRequest) {
 
         /*
         1. Order Entity - Save the order details in Order details table
         2. Call product service and check if there is enough stock available if yes, block the products(reduce the quantity)
-        3. Call payment service - if payment is success return complete else cancelled.
+        3. Call payment service - if payment is success return complete else cancelled.n
 
          */
         log.info("Placing order request : {}",orderRequest);
+
+        productService.reduceQuantity(orderRequest.getProductId(),orderRequest.getQuantity());
+
+        log.info("Reducing product quantity is done - creating order with status CREATED : {}",orderRequest);
+
         Order order =  Order.builder()
                 .amount(orderRequest.getTotalAmount())
                 .orderStatus("CREATED")
