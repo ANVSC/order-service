@@ -62,6 +62,18 @@
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
 		<!-- Dependency for FeignClient End-->
+		<!-- Dependency for sleuth  start-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
+		<!-- Dependency for sleuth  End-->
+		<!-- Dependency for Zipkin Client  Start-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-sleuth-zipkin</artifactId>
+		</dependency>
+		<!-- Dependency for Zipkin Client  End-->
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
